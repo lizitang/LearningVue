@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>class绑定</title>
+		<style type="text/css">
+			.red{
+				color:red;
+			}
+			.blue{
+				background: blue;
+			}
+			.yellow{
+				background: yellow;
+			}
+			.green{
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<!--传给 v-bind:class 一个对象，以动态地切换 class-->
+		<div id="app">
+			<p v-bind:class="{red:isRed,blue:isBlue}">22333</p>
+			<!--可以绑定class对象-->
+			<p v-bind:class="classObject">xixixi</p>
+			<!--数组语法-->
+		</div>
+		<script src="vue.min.js"></script>
+		<script type="text/javascript">
+			var vm=new Vue({
+				el:"#app",
+				data:{
+					isRed:true,
+					isBlue:true,
+					classObject:{
+						yellow:true,
+						green:true
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

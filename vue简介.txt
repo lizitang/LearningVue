@@ -1,0 +1,13 @@
+1.模块化基础
+2.es6
+
+
+Vue.js的一个组件
+	*.vue(一个vue文件)——>html:<template></template>
+					 javascript:<script></script>
+					 css:<style></style>
+
+vue脚手架（不知道啊啊 啊啊啊啊啊）
+
+v-model   只能放在input，下拉框
+v-html

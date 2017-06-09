@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>style绑定</title>
+	</head>
+	<body>
+		<!--<div id="app">
+			<p v-bind:style="{color:}">23333</p>
+		</div>-->
+		<input type="checkbox" />
+		<input type="file" />
+		<input type="hidden" />
+		<input type="image" />
+		<input type="password" />
+		<input type="radio" />
+		<input type="reset" />
+		<input type="submit" />
+		<marquee direction="left">default scroll direction</marquee>
+		
+	</body>
+	<script type="text/javascript">
+		var myObject = {
+		    foo: "bar",
+		    func: function() {
+		        var self = this;
+		        console.log(this.foo);  //bar
+		        console.log(self.foo);  //bar
+		        //立即执行函数
+		        (function() {
+		            console.log(this.foo);  //立即执行函数，this指向window
+		            console.log(self.foo);  //第四个self.foo输出bar，因为这个匿名函数所处的上下文中没有self，所以通过作用域链向上查找，从包含它的父函数中找到了指向myObject对象的self
+		        }());
+		    }
+		};
+myObject.func();
+	</script>
+</html>
