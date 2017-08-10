@@ -124,6 +124,31 @@ methods: {
   }
 }
 ```
+### 子组件索引
+为此可以使用 ref 为子组件指定一个索引 ID。例如：
+```
+<div id="parent">
+  <user-profile ref="profile"></user-profile>
+</div>
+```
+```
+var parent = new Vue({ el: '#parent' })
+// 访问子组件
+var child = parent.$refs.profile
+```
+* Vue 不允许在已经创建的实例上动态添加新的根级响应式属性(root-level reactive property)。然而它可以使用 Vue.set(object, key, value) 方法将响应属性添加到嵌套的对象上：
+```
+Vue.set(vm.someObject, 'b', 2)
+```
+或者
+```
+this.$set(this.someObject,'b',2)
+```
+* 如果是在已有的对象上添加一些属性，使用Object.assign()或者_.extend()
+```
+this.someObject = Object.assign({},this.someObject,{a:1,b:2})
+```
+### 过度效果
 
 
 
