@@ -42,3 +42,23 @@ axios.get('/user?ID=123')
         console.log(error);
     });
 ```
+#### 执行多个并发请求
+```
+function getUserAccount () {
+    return axios.get('/user/1234')
+}
+
+function getUserPermissions () {
+    return axios.get('/user/1234/permissions')
+}
+
+axios.all([getUserAccount(),getUserPermissions()])
+    .then(axios.spread(function (acct,perms)))
+```
+
+#### 并发
+处理并发请求的助手函数
+```
+axios.all(iterable)
+axios.spread(callback)
+```
