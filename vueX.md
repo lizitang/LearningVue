@@ -41,8 +41,43 @@ const store = new Vuex.Store({
 export default new Vuex.Store
 ```
 以上例子只存放一个状态author
+* <div style="color:red;font-size:18px">将状态映射到组件</div>
+```html
+<template>
+  <footer class="footer">
+    <ul>
+      <li v-for="lis in ul">{{lis.li}}</li>
+    </ul>
+    <p>
+      Copyright&nbsp;&copy;&nbsp;{{author}} - 2016 All rights reserved
+    </p>
+  </footer>
+</template>
 
+<script>
+  export default {
+    name: 'footerDiv',
+    data () {
+      return {
+        ul: [
+          { li: '琉璃之金' },
+          { li: '朦胧之森' },
+          { li: '缥缈之滔' },
+          { li: '逍遥之火' },
+          { li: '璀璨之沙' }
+        ]
+      }
+    },
+    computed: {
+      author () {
+        return this.$store.state.author
+      }
+    }
+  }
+</script>
 ```
+主要在 computed 中，将 this.$store.state.author 的值返回给 html 中的 author
+```html
 <!--父组件中引入子组件-->
     <template>
     <div>
